@@ -1,0 +1,29 @@
+{
+  "folders":
+  [
+    {
+      "file_exclude_patterns":
+      [
+        "*.sublime-project",
+        "*.sublime-workspace",
+        ".gitignore",
+        ".gitkeep",
+        "circle.yml",
+        ".babelrc",
+        ".editorconfig"
+      ],
+      "folder_exclude_patterns":
+      [
+        "node_modules",
+        "build"
+      ],
+      "path": "."
+    }
+  ],
+  "settings":
+  {
+    "FuzzyFilePath":
+    {
+    }
+  }
+}
