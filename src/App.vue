@@ -6,21 +6,35 @@
 </template>
 
 <script>
+import Rx from 'rxjs';
 import Hello from './components/Hello'
 import SirApi from '../lib/sir-api/';
 
 const testUrl = 'https:/jsonplaceholder.typicode.com/posts/1';
-const opts = {timeout: 1000, periodic: 2500};
+const opts = {timeout: 1000, periodic: 5000};
 
 let x = SirApi.poll(testUrl, opts)
-// console.log("x:", x)
-x.subscribe(r => console.log("x:", r))
 
 setTimeout(() => {
-  let y = SirApi.poll(testUrl, opts)
-  // console.log("y:", y)
-  x.subscribe(r => console.log("y:", r))
-}, 4000)
+  console.log('new sub x')
+  x.subscribe(
+    r => console.log("x r:", r),
+    e => console.log("x e:", e))
+}, 500)
+
+setTimeout(() => {
+  console.log('new sub y')
+  x.subscribe(
+    r => console.log("y r:", r),
+    e => console.log("y e:", e))
+}, 6000)
+
+setTimeout(() => {
+  console.log('new sub z')
+  x.subscribe(
+    r => console.log("z r:", r),
+    e => console.log("z e:", e))
+}, 7000)
 
 export default {
   name: 'app',
