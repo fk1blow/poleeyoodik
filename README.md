@@ -20,3 +20,4 @@ npm run build
 2. add protection/validation againts non-json responses
 3. add `BehaviourSubject` as subscriptions
 4. add tests(maybe while developing?!) 
+5. add subscription correct handle inside the api.js

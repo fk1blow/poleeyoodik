@@ -9,6 +9,9 @@
 import Hello from './components/Hello'
 import SirApi from '../lib/sir-api/';
 
+const testUrl = 'https:/jsonplaceholder.typicode.com/posts/1';
+const opts = {timeout: 1000, periodic: 2500};
+
 SirApi.poll('/foo/bar')
 
 export default {
