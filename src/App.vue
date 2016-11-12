@@ -12,7 +12,15 @@ import SirApi from '../lib/sir-api/';
 const testUrl = 'https:/jsonplaceholder.typicode.com/posts/1';
 const opts = {timeout: 1000, periodic: 2500};
 
-SirApi.poll('/foo/bar')
+let x = SirApi.poll(testUrl, opts)
+// console.log("x:", x)
+x.subscribe(r => console.log("x:", r))
+
+setTimeout(() => {
+  let y = SirApi.poll(testUrl, opts)
+  // console.log("y:", y)
+  x.subscribe(r => console.log("y:", r))
+}, 4000)
 
 export default {
   name: 'app',
