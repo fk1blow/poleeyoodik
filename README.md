@@ -15,4 +15,8 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## todo
+1. add invalidation check as function parameter on valid responses
+2. add protection/validation againts non-json responses
+3. add `BehaviourSubject` as subscriptions
+4. add tests(maybe while developing?!) 
