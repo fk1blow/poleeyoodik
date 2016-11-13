@@ -2,7 +2,7 @@ Reactive Periodical Streams
 ===========================
 
 Run periodical functions with strategies for intervals, restarts and finite lifecycle,
-running on observables(using reactive extensions) for better composition and modularity.
+using observables(reactive extensions) for better composition and modularity.
 
 ## Build Setup
 
