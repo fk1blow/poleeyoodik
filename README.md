@@ -1,6 +1,8 @@
-# sir-api
+Reactive Periodical Streams
+===========================
 
-> sir-api concept
+Run periodical functions with strategies for intervals, restarts and finite lifecycle,
+running on observables(using reactive extensions) for better composition and modularity.
 
 ## Build Setup
 
