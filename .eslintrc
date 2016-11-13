@@ -4,12 +4,6 @@
         "browser": true,
         "node": true
     },
-    "rules": {
-        // Advanced Syntax
-        "no-mixed-operators": 0,
-        "no-nested-ternary": 0,
-        "no-fallthrough": 0,
-    },
 
     "plugins": ["react"],
     "parser": "babel-eslint"
