@@ -21,6 +21,8 @@ in case of errors:
       result => console.log(result),
       error => console.error(error),
       () => console.log('periodical has ended');
+      
+Stopping the periodical(stream) is easy, just call `newPeriodical.unsubscribe()`.
 
 ## Build Setup
 
