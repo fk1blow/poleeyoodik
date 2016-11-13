@@ -1,7 +1,7 @@
 Reactive Periodical Streams
 ===========================
 
-Run periodical functions with strategies for intervals, restarts and finite lifecycle,
+Periodically run functions, having a strategy for timeout, restart and lifecycle(finite or infinite),
 using observables(reactive extensions) for better composition and modularity.
 
 ## Example
@@ -9,13 +9,18 @@ using observables(reactive extensions) for better composition and modularity.
 You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second, restarting the process for 10 times
 in case of errors:
 
-    Periodical.run(
-      () => Rx.Observable.fromPromise(fetch(endpoint)),
+    let newPeriodical = Periodical.run(
+      () => fetch(endpoint),
       {
         repetitions: 10,
         interval: 30 * 1000,
         timeout: 1000
-      })
+      });
+    
+    newPeriodical.subscribe(
+      result => console.log(result),
+      error => console.error(error),
+      () => console.log('periodical has ended');
 
 ## Build Setup
 
