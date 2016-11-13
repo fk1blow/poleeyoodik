@@ -9,8 +9,14 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "babel-eslint": "^7.1.0",
     "data.either": "^1.4.0",
     "data.maybe": "^1.2.2",
+    "eslint": "^3.10.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0",
     "rxjs": "^5.0.0-rc.2",
     "vue": "^2.0.1"
   },
