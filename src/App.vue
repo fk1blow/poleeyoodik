@@ -8,12 +8,12 @@
 <script>
 import Rx from 'rxjs';
 import Hello from './components/Hello'
-import SirApi from '../lib/sir-api/';
+import ReactivePoller from '../lib/reactive-poller/';
 
-const testUrl = 'https:/jsonplaceholder.typicode.com/posts/1';
-const opts = {timeout: 1000, periodic: 5000};
+const resource = {url: 'https:/jsonplaceholder.typicode.com/posts/1'};
+const strategy = {timeout: 1000, interval: 5000};
 
-let x = SirApi.poll(testUrl, opts)
+let x = ReactivePoller.run(resource, strategy)
 
 setTimeout(() => {
   console.log('new sub x')
