@@ -10,8 +10,8 @@ strategy when failing.
 You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second, 
 restarting the process for 10 times in case of errors:
 
-    let stream = Periodical.run(
-      () => fetch(endpoint),
+    // periodically
+    let stream = Periodical.run('https://someo.ne/api'
       {
         repetitions: 10,
         interval: 30 * 1000,
@@ -24,6 +24,37 @@ restarting the process for 10 times in case of errors:
       () => console.log('periodical has ended');
       
 Stopping the periodical(stream) is easy, just call `stream.unsubscribe()`.
+
+## Strategy
+
+Define the strategy to follow when dealing with errors - you can retry, repeat or stop
+a resource, from polling its value.
+
+    {
+      // undefined field will simply run it for just 1(one) time
+      // 'infinite' will mean that it runs for ever
+      repetitions: 'infinite',
+
+      // minutes `{minutes: 25}`, hours `{hours: 6}`
+      interval: {seconds: 30},
+
+      // in case of (some tbd) errors, retry the task for 20 times
+      // WILL HAVE A PRECEDENCE OVER `repetitions` and will bypass its value
+      // if undefined, default value is 10, or 'infinite' and never stops trying to repeat the task
+      retries: 30,
+
+      // when the interval has changed, before the task is called, you can  
+      // modify the strategy of the next stage
+      //
+      // The state in this case is the last recorded value of running the
+      // task that resulted in some data(eg: 'data.match.odds')
+      onInterval: (periodical, state) => {
+       if (result.match.isLive) 
+         return {continue: true, strategy: {interval: {seconds: 5}}}
+       if (result.match.hasEnded) 
+         return {stop: true}
+      }
+    }
 
 ## Build Setup
 
