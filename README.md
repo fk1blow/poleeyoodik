@@ -1,13 +1,14 @@
-Reactive Periodical Streams
-===========================
+Using Rx to periodically fetch resource/s
+=========================================
 
-Periodically run functions, having a strategy for timeout, restart and lifecycle(finite or infinite),
-using observables(reactive extensions) for better composition and modularity.
+A playground where i'm using reactive extensions(rxjs) to build a simple library, 
+one that deals with fetching a resource at specific intervals of time, and a clear 
+strategy when failing.
 
 ## Example
 
-You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second, restarting the process for 10 times
-in case of errors:
+You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second, 
+restarting the process for 10 times in case of errors:
 
     let newPeriodical = Periodical.run(
       () => fetch(endpoint),
@@ -36,10 +37,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-## todo
-1. add invalidation check as function parameter on valid responses
-2. add protection/validation againts non-json responses
-3. add `BehaviourSubject` as subscriptions
-4. add tests(maybe while developing?!) 
-5. add subscription correct handle inside the api.js
