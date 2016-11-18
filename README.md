@@ -10,7 +10,7 @@ strategy when failing.
 You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second, 
 restarting the process for 10 times in case of errors:
 
-    let newPeriodical = Periodical.run(
+    let stream = Periodical.run(
       () => fetch(endpoint),
       {
         repetitions: 10,
@@ -18,12 +18,12 @@ restarting the process for 10 times in case of errors:
         timeout: 1000
       });
     
-    newPeriodical.subscribe(
+    stream.subscribe(
       result => console.log(result),
       error => console.error(error),
       () => console.log('periodical has ended');
       
-Stopping the periodical(stream) is easy, just call `newPeriodical.unsubscribe()`.
+Stopping the periodical(stream) is easy, just call `stream.unsubscribe()`.
 
 ## Build Setup
 
