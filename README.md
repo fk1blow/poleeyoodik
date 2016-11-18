@@ -7,8 +7,8 @@ strategy when failing.
 
 ## Example
 
-You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second, 
-restarting the process for 10 times in case of errors:
+You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second,
+never restarting the process:
 
     // periodically
     let stream = Periodical.run('https://someo.ne/api'
@@ -31,8 +31,11 @@ Define the strategy to follow when dealing with errors - you can retry, repeat o
 a resource, from polling its value.
 
     {
-      // undefined field will simply run it for just 1(one) time
-      // 'infinite' will mean that it runs for ever
+      /*
+        default is 0
+        alternatives: seconds | minutes | hours | days
+        examples: `{seconds: 30}` - every 30 seconds, make the request to fetch resource
+      */
       repetitions: 'infinite',
 
       // minutes `{minutes: 25}`, hours `{hours: 6}`
