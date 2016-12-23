@@ -1,13 +1,12 @@
 Using Rx to periodically fetch resource/s
 =========================================
 
-A playground where i'm using reactive extensions(rxjs) to build a simple library, 
-one that deals with fetching a resource at specific intervals of time, and a clear 
-strategy when failing.
+Periodically fetch resources from different locations using multiple apis, 
+fetching a resource at specific intervals of time(and a clear strategy when failing).
 
 ## Example
 
-You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second,
+Fetch an HTTP Resource, every 30 seconds, request timeout at 1 second,
 never restarting the process:
 
     // periodically
@@ -23,11 +22,11 @@ never restarting the process:
       error => console.error(error),
       () => console.log('periodical has ended');
       
-Stopping the periodical(stream) is easy, just call `stream.unsubscribe()`.
+Stopping the periodical(stream) by calling `stream.unsubscribe()`.
 
 ## Strategy
 
-Define the strategy to follow when dealing with errors - you can retry, repeat or stop
+Define the strategy to follow when dealing with errors - can retry, repeat or stop
 a resource, from polling its value.
 
     {
