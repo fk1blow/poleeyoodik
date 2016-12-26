@@ -1,8 +1,7 @@
 Periodically fetch resource/s
 =============================
 
-Periodically fetch resources from different locations using multiple apis, 
-fetching a resource at specific intervals of time(and a clear strategy when failing).
+Periodically fetch resources from different locations using multiple apis, and specific intervals of time they will repeat or timeout(and a clear strategy when failing).
 
 ## Example
 
