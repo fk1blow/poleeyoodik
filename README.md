@@ -1,5 +1,5 @@
-Periodically fetch resource/s
-=============================
+poleeyoodik
+===========
 
 Periodically fetch resources from different locations using multiple apis, and specific intervals of time they will repeat or timeout(and a clear strategy when failing).
 
