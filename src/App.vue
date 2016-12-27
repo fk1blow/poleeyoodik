@@ -11,13 +11,13 @@ import Hello from './components/Hello'
 import ReactivePoller from '../lib/reactive-poller/';
 
 const strategyModifier = (strategy, result) => {
-  return {...strategy, interval: 10000}
+  return {...strategy, interval: 5000}
   // return {...strategy, interval: result.interval}
 }
 
 const resource = {url: 'https:/jsonplaceholder.typicode.com/posts/1'};
 // const resource = {url: 'http://localhost:3000/api/event-info'};
-const strategy = {timeout: 1000, interval: 5000, modifier: strategyModifier};
+const strategy = {timeout: 1000, interval: 1000, repetitions: 1, modifier: strategyModifier};
 
 let x = ReactivePoller.run(resource, strategy)
 
