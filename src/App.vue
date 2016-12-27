@@ -11,7 +11,7 @@ import Hello from './components/Hello'
 import ReactivePoller from '../lib/reactive-poller/';
 
 const strategyModifier = (strategy, result) => {
-  return {...strategy, interval: 2000}
+  return {...strategy, interval: 10000}
   // return {...strategy, interval: result.interval}
 }
 
