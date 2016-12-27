@@ -1,23 +1,45 @@
-# sir-api
+Reactive Periodical Streams
+===========================
 
-> sir-api concept
+Periodically fetch resources from different locations using multiple apis,
+and specific intervals of time they will repeat or timeout(and a clear strategy when failing).
+
+## Example
+
+You want to fetch an HTTP Resource, every 30 seconds, request timeout at 1 second,
+restarting the process for 10 times in case of errors:
+
+    let newPeriodical = Periodical.run(
+          () => fetch(endpoint),
+                {
+                          repetitions: 10,
+                                  interval: 30 * 1000,
+                                          timeout: 1000
+                                                });
+
+            newPeriodical.subscribe(
+                  result => console.log(result),
+                        error => console.error(error),
+                              () => console.log('periodical has ended');
+
+                                    Stopping the periodical(stream) is easy, just call `newPeriodical.unsubscribe()`.
 
 ## Build Setup
 
-``` bash
+                                    `` bash
 # install dependencies
-npm install
+                                    npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+                                    npm run dev
 
 # build for production with minification
-npm run build
-```
+                                    npm run build
+                                    ``
 
 ## todo
-1. add invalidation check as function parameter on valid responses
-2. add protection/validation againts non-json responses
-3. add `BehaviourSubject` as subscriptions
-4. add tests(maybe while developing?!) 
-5. add subscription correct handle inside the api.js
+                                    1. add invalidation check as function parameter on valid responses
+                                    2. add protection/validation againts non-json responses
+                                    3. add `BehaviourSubject` as subscriptions
+                                    4. add tests(maybe while developing?!)
+                                    5. add subscription correct handle inside the api.js)
